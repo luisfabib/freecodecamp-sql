@@ -43,9 +43,7 @@ echo "$($PSQL \
   ")"
 
 echo -e "\nList of unique winning team names in the whole data set:"
-echo "$($PSQL \
-  " \
-  SELECT DISTINCT(name) FROM games LEFT JOIN teams ON teams.team_id=games.winner_id ORDER BY name ")"
+echo "$($PSQL "SELECT DISTINCT(name) FROM games LEFT JOIN teams ON teams.team_id=games.winner_id ORDER BY name ")"
 
 echo -e "\nYear and team name of all the champions:"
 echo "$($PSQL "SELECT year,name FROM games LEFT JOIN teams ON teams.team_id=games.winner_id WHERE round='Final' ORDER BY year ")"
